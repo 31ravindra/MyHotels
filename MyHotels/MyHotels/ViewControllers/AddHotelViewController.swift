@@ -30,7 +30,7 @@ class AddHotelViewController: UIViewController {
     let coreDataHelper = SwiftCoreDataHelper()
     var hotels: [NSManagedObject] = []
     var isComeFromEdit = false
-    var hotel = NSManagedObject()
+    var hotel:NSManagedObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +74,7 @@ class AddHotelViewController: UIViewController {
         
         
         if isComeFromEdit {
+            if let hotel = hotel {
             txtName.text = hotel.value(forKey: "name") as? String
             txtViewAddress.textColor = .black
             txtViewAddress.text = hotel.value(forKey: "address") as? String
@@ -92,7 +93,7 @@ class AddHotelViewController: UIViewController {
             if let date = date {
             datePicker.date = date
             }
-            
+            }
         }
     }
     
@@ -132,11 +133,13 @@ class AddHotelViewController: UIViewController {
             hotelData.stayDate = date
         }
         if isComeFromEdit {
+            if let hotel = hotel {
             coreDataHelper.updateData(forEntity: "Hotel", objectId: hotel.objectID, updateValueTo: hotelData, andSaveToArray: &hotels, completion: {[weak self](isUpdated) in
                 DispatchQueue.main.async {
                     self?.showToast(message: "Data Updated", font: .systemFont(ofSize: 12))
                 }
             })
+            }
         } else {
         coreDataHelper.save(hotelData: hotelData, useEntity: "Hotel", useArray: &hotels, completion: {[weak self](isSaved) in
             DispatchQueue.main.async {

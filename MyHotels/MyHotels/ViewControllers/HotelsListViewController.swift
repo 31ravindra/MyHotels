@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 class HotelsListViewController: UIViewController {
-
+    
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var addButton: UIBarButtonItem!
     let coreDataHelper = SwiftCoreDataHelper()
@@ -40,7 +40,7 @@ class HotelsListViewController: UIViewController {
         let addHotelViewController = storyBoard.instantiateViewController(withIdentifier: "AddHotelViewController") as! AddHotelViewController
         addHotelViewController.isComeFromEdit = isEdit
         if let hotel = hotel {
-        addHotelViewController.hotel = hotel
+            addHotelViewController.hotel = hotel
         }
         self.navigationController?.pushViewController(addHotelViewController, animated: true)
     }
@@ -66,11 +66,19 @@ extension HotelsListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.lblNameHotel.text = hotel.value(forKey: "name") as? String
         let rating = hotel.value(forKey: "rating")
         if let rat = rating {
-        cell.lblRating.text = "Rating = \(rat)"
+            cell.lblRating.text = "Rating = \(rat)"
         }
         let imgData = hotel.value(forKey: "img") as! Data
         let imge = imgData.uiImage
         cell.imageView?.image = imge
+        cell.cellDelegate = self
+        cell.btnFavorite.tag = indexPath.row
+        let isFav = hotel.value(forKey: "isfavourite") as! Bool
+        if isFav {
+            cell.btnFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            cell.btnFavorite.setImage(UIImage(systemName: "star"), for: .normal)
+        }
         return cell
     }
     
@@ -84,7 +92,7 @@ extension HotelsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-
+            
             // remove the item from the data model
             let deleteHotel = hotels[indexPath.row]
             // delete the table view row
@@ -95,11 +103,55 @@ extension HotelsListViewController: UITableViewDataSource, UITableViewDelegate {
                 }
             })
             
-
+            
         } else if editingStyle == .insert {
             // Not used in our example, but if you were adding a new row, this is where you would do it.
         }
     }
     // this method handles row deletion
- 
+    
+}
+
+
+extension HotelsListViewController: HotelDetailTableViewCellDelegate {
+    func didPressFavButton(_ tag: Int) {
+        let cell = self.tblView.cellForRow(at: IndexPath(row: tag, section: 0)) as! HotelDetailTableViewCell
+        let ishotelFav = hotels[tag].value(forKey: "isfavourite") as! Bool
+        
+        var hotelModel = HotelModel()
+        let hotel = hotels[tag]
+        hotelModel.name = hotel.value(forKey: "name") as? String
+        
+        hotelModel.address = hotel.value(forKey: "address") as? String
+        let imgData = hotel.value(forKey: "img") as? Data
+        hotelModel.imgData = imgData
+        let rating = hotel.value(forKey: "rating") as? Int
+        if let rat = rating {
+            hotelModel.rating = rat
+        }
+        let price = hotel.value(forKey: "roomrate") as? Int
+        if let rate = price {
+            hotelModel.roomRate = rate
+        }
+        
+        let date = hotel.value(forKey: "staydate") as? Date
+        if let date = date {
+            hotelModel.stayDate = date
+        }
+        
+        if !ishotelFav {
+            cell.btnFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            hotelModel.isFav = true
+            coreDataHelper.updateData(forEntity: "Hotel", objectId: hotel.objectID, updateValueTo: hotelModel, andSaveToArray: &hotels, completion: {(isUpdated) in
+                
+            })
+            
+        } else {
+            cell.btnFavorite.setImage(UIImage(systemName: "star"), for: .normal)
+            hotelModel.isFav = false
+            coreDataHelper.updateData(forEntity: "Hotel", objectId: hotel.objectID, updateValueTo: hotelModel, andSaveToArray: &hotels, completion: {(isUpdated) in
+                
+            })
+        }
+    }
 }

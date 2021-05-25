@@ -43,25 +43,38 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTL-uR-aQz">
-                                                    <rect key="frame" x="90" y="16" width="294" height="21"/>
+                                                    <rect key="frame" x="90" y="16" width="274" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SyU-86-kZz">
-                                                    <rect key="frame" x="90" y="47" width="294" height="21"/>
+                                                    <rect key="frame" x="90" y="47" width="274" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTO-Ct-wJA">
+                                                    <rect key="frame" x="374" y="25" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="8gM-Gf-RWF"/>
+                                                        <constraint firstAttribute="height" constant="30" id="IA9-Zg-CPA"/>
+                                                    </constraints>
+                                                    <state key="normal" image="star" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="btnFavoriteClicked:" destination="Kqq-sl-V6g" eventType="touchUpInside" id="BGW-B8-mID"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="sd2-sy-8yf" secondAttribute="trailing" id="4jB-Ro-88R"/>
                                                 <constraint firstItem="vTL-uR-aQz" firstAttribute="top" secondItem="QDf-jJ-mk6" secondAttribute="topMargin" constant="5" id="8RT-sH-WeC"/>
+                                                <constraint firstAttribute="trailing" secondItem="zTO-Ct-wJA" secondAttribute="trailing" constant="10" id="ANe-1w-fqh"/>
                                                 <constraint firstItem="CHy-5b-q3t" firstAttribute="leading" secondItem="QDf-jJ-mk6" secondAttribute="leading" constant="10" id="SSh-Z9-7uj"/>
                                                 <constraint firstItem="SyU-86-kZz" firstAttribute="top" secondItem="vTL-uR-aQz" secondAttribute="bottom" constant="10" id="TRL-Ec-esA"/>
+                                                <constraint firstItem="zTO-Ct-wJA" firstAttribute="centerY" secondItem="QDf-jJ-mk6" secondAttribute="centerY" id="bhK-iu-3We"/>
                                                 <constraint firstItem="SyU-86-kZz" firstAttribute="leading" secondItem="vTL-uR-aQz" secondAttribute="leading" id="dzh-dF-dhz"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vTL-uR-aQz" secondAttribute="trailing" constant="10" id="ezp-gI-jrM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vTL-uR-aQz" secondAttribute="trailing" constant="30" id="ezp-gI-jrM"/>
                                                 <constraint firstItem="SyU-86-kZz" firstAttribute="trailing" secondItem="vTL-uR-aQz" secondAttribute="trailing" id="jg4-N7-NnG"/>
                                                 <constraint firstItem="sd2-sy-8yf" firstAttribute="leading" secondItem="QDf-jJ-mk6" secondAttribute="leading" constant="10" id="lKI-Bt-kS1"/>
                                                 <constraint firstItem="vTL-uR-aQz" firstAttribute="leading" secondItem="CHy-5b-q3t" secondAttribute="trailing" constant="20" id="nqG-DX-g1B"/>
@@ -70,6 +83,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btnFavorite" destination="zTO-Ct-wJA" id="3pF-PL-OUG"/>
                                             <outlet property="imgHotel" destination="CHy-5b-q3t" id="bFX-ka-ts4"/>
                                             <outlet property="lblNameHotel" destination="vTL-uR-aQz" id="p6o-V6-BwL"/>
                                             <outlet property="lblRating" destination="SyU-86-kZz" id="X7y-ab-g4c"/>
@@ -315,6 +329,7 @@
     </scenes>
     <resources>
         <image name="placeholder" width="273" height="184"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
