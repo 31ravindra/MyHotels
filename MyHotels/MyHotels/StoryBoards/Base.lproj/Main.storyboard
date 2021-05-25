@@ -91,6 +91,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Visited Hotels" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QZP-Fu-0Y5">
+                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -110,6 +117,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="gBw-uj-xtq" id="egB-99-jvN"/>
+                        <outlet property="lblNoHotels" destination="QZP-Fu-0Y5" id="VgV-mj-WMr"/>
                         <outlet property="tblView" destination="Hao-XS-X8e" id="xym-66-Ixh"/>
                     </connections>
                 </viewController>

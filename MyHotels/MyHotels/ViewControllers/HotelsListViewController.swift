@@ -10,6 +10,7 @@ import CoreData
 class HotelsListViewController: UIViewController {
     
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var lblNoHotels: UILabel!
     @IBOutlet weak var addButton: UIBarButtonItem!
     let coreDataHelper = SwiftCoreDataHelper()
     var hotels: [NSManagedObject] = []
@@ -24,7 +25,7 @@ class HotelsListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        coreDataHelper.getData(forEntity: "Hotel", andSaveToArray: &hotels, completion: { [weak self](isComplete) in
+        coreDataHelper.getData(forEntity: Constants.entityConstant.entityName, andSaveToArray: &hotels, completion: { [weak self](isComplete) in
             DispatchQueue.main.async {
                 if isComplete {
                     self?.tblView.reloadData()
@@ -34,10 +35,16 @@ class HotelsListViewController: UIViewController {
             }
         })
         
+        if hotels.count == 0 {
+            lblNoHotels.isHidden = false
+        } else {
+            lblNoHotels.isHidden = true
+        }
+        
     }
     func moveToAddEditHotel(isEdit: Bool, hotel: NSManagedObject?) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let addHotelViewController = storyBoard.instantiateViewController(withIdentifier: "AddHotelViewController") as! AddHotelViewController
+        let storyBoard : UIStoryboard = UIStoryboard(name: Constants.storyBoardConstants.storyBoardName, bundle:nil)
+        let addHotelViewController = storyBoard.instantiateViewController(withIdentifier: Constants.viewControllersIdentifiers.addHotelVC) as! AddHotelViewController
         addHotelViewController.isComeFromEdit = isEdit
         if let hotel = hotel {
             addHotelViewController.hotel = hotel
@@ -96,16 +103,13 @@ extension HotelsListViewController: UITableViewDataSource, UITableViewDelegate {
             // remove the item from the data model
             let deleteHotel = hotels[indexPath.row]
             // delete the table view row
-            coreDataHelper.deleteData(deleteHotel: deleteHotel, forEntity: "Hotel", completion: {[weak self](isDeleted) in
+            coreDataHelper.deleteData(deleteHotel: deleteHotel, forEntity: Constants.entityConstant.entityName, completion: {[weak self](isDeleted) in
                 DispatchQueue.main.async {
                     self?.hotels.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: .fade)
                 }
             })
-            
-            
-        } else if editingStyle == .insert {
-            // Not used in our example, but if you were adding a new row, this is where you would do it.
+ 
         }
     }
     // this method handles row deletion
@@ -142,14 +146,14 @@ extension HotelsListViewController: HotelDetailTableViewCellDelegate {
         if !ishotelFav {
             cell.btnFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
             hotelModel.isFav = true
-            coreDataHelper.updateData(forEntity: "Hotel", objectId: hotel.objectID, updateValueTo: hotelModel, andSaveToArray: &hotels, completion: {(isUpdated) in
+            coreDataHelper.updateData(forEntity: Constants.entityConstant.entityName, objectId: hotel.objectID, updateValueTo: hotelModel, andSaveToArray: &hotels, completion: {(isUpdated) in
                 
             })
             
         } else {
             cell.btnFavorite.setImage(UIImage(systemName: "star"), for: .normal)
             hotelModel.isFav = false
-            coreDataHelper.updateData(forEntity: "Hotel", objectId: hotel.objectID, updateValueTo: hotelModel, andSaveToArray: &hotels, completion: {(isUpdated) in
+            coreDataHelper.updateData(forEntity: Constants.entityConstant.entityName, objectId: hotel.objectID, updateValueTo: hotelModel, andSaveToArray: &hotels, completion: {(isUpdated) in
                 
             })
         }
