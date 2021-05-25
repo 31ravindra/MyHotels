@@ -131,11 +131,19 @@ class AddHotelViewController: UIViewController {
         if let date = date {
             hotelData.stayDate = date
         }
+        if isComeFromEdit {
+            coreDataHelper.updateData(forEntity: "Hotel", objectId: hotel.objectID, updateValueTo: hotelData, andSaveToArray: &hotels, completion: {[weak self](isUpdated) in
+                DispatchQueue.main.async {
+                    self?.showToast(message: "Data Updated", font: .systemFont(ofSize: 12))
+                }
+            })
+        } else {
         coreDataHelper.save(hotelData: hotelData, useEntity: "Hotel", useArray: &hotels, completion: {[weak self](isSaved) in
             DispatchQueue.main.async {
                 self?.showToast(message: "Data Saved", font: .systemFont(ofSize: 12))
             }
         })
+        }
         
         
     }

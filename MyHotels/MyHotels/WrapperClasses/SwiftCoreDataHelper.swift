@@ -57,12 +57,16 @@ class SwiftCoreDataHelper {
     }
 
     //Updating stored data
-    func updateData(forEntity: String, updateValueTo updatedValue: HotelModel, andSaveToArray entityArray: inout [NSManagedObject], completion: @escaping (_ success:Bool) -> Void){
+    func updateData(forEntity: String, objectId: NSManagedObjectID, updateValueTo updatedValue: HotelModel, andSaveToArray entityArray: inout [NSManagedObject], completion: @escaping (_ success:Bool) -> Void){
 
         //Get managedContext, refrence to AppDelegate, and prepare fetchRequest
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "\(forEntity)")
+        let predicate = NSPredicate(format: "self == %@", objectId)
+
+        fetchRequest.predicate = predicate
+
 
         do {
             let fetched = try managedContext.fetch(fetchRequest)
