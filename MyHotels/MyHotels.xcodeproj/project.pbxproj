@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E03084E8265B83BC00172809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03084E7265B83BC00172809 /* AppDelegate.swift */; };
 		E03084EA265B83BC00172809 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03084E9265B83BC00172809 /* SceneDelegate.swift */; };
-		E03084EC265B83BC00172809 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03084EB265B83BC00172809 /* ViewController.swift */; };
 		E03084EF265B83BC00172809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E03084ED265B83BC00172809 /* Main.storyboard */; };
 		E03084F2265B83BC00172809 /* MyHotels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E03084F0265B83BC00172809 /* MyHotels.xcdatamodeld */; };
 		E03084F4265B83BC00172809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E03084F3265B83BC00172809 /* Assets.xcassets */; };
@@ -19,10 +18,7 @@
 		E0308528265B851500172809 /* SwiftCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0308527265B851500172809 /* SwiftCoreDataHelper.swift */; };
 		E0308530265B854700172809 /* HotelsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030852F265B854700172809 /* HotelsListViewController.swift */; };
 		E0308536265B856C00172809 /* HotelDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0308535265B856C00172809 /* HotelDetailTableViewCell.swift */; };
-		E030853E265B858800172809 /* EditUpdateHotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030853D265B858800172809 /* EditUpdateHotelViewController.swift */; };
 		E0308543265B85A100172809 /* AddHotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0308542265B85A100172809 /* AddHotelViewController.swift */; };
-		E0308548265B85BC00172809 /* VisitedHotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0308547265B85BC00172809 /* VisitedHotelViewController.swift */; };
-		E030854D265B85D600172809 /* FavouritesHotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030854C265B85D600172809 /* FavouritesHotelViewController.swift */; };
 		E0308552265BAB9D00172809 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0308551265BAB9D00172809 /* ImagePickerManager.swift */; };
 		E0308558265BAC0700172809 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0308557265BAC0700172809 /* Extensions.swift */; };
 		E070DB0E265BC2CD00E0DBBC /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070DB0D265BC2CD00E0DBBC /* HotelModel.swift */; };
@@ -50,7 +46,6 @@
 		E03084E4265B83BC00172809 /* MyHotels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHotels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E03084E7265B83BC00172809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E03084E9265B83BC00172809 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E03084EB265B83BC00172809 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E03084EE265B83BC00172809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E03084F1265B83BC00172809 /* MyHotels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyHotels.xcdatamodel; sourceTree = "<group>"; };
 		E03084F3265B83BC00172809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,10 +60,7 @@
 		E0308527265B851500172809 /* SwiftCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCoreDataHelper.swift; sourceTree = "<group>"; };
 		E030852F265B854700172809 /* HotelsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelsListViewController.swift; sourceTree = "<group>"; };
 		E0308535265B856C00172809 /* HotelDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailTableViewCell.swift; sourceTree = "<group>"; };
-		E030853D265B858800172809 /* EditUpdateHotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUpdateHotelViewController.swift; sourceTree = "<group>"; };
 		E0308542265B85A100172809 /* AddHotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHotelViewController.swift; sourceTree = "<group>"; };
-		E0308547265B85BC00172809 /* VisitedHotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitedHotelViewController.swift; sourceTree = "<group>"; };
-		E030854C265B85D600172809 /* FavouritesHotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesHotelViewController.swift; sourceTree = "<group>"; };
 		E0308551265BAB9D00172809 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		E0308557265BAC0700172809 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E070DB0D265BC2CD00E0DBBC /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
@@ -177,12 +169,8 @@
 		E0308523265B84B000172809 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E03084EB265B83BC00172809 /* ViewController.swift */,
 				E030852F265B854700172809 /* HotelsListViewController.swift */,
-				E030853D265B858800172809 /* EditUpdateHotelViewController.swift */,
 				E0308542265B85A100172809 /* AddHotelViewController.swift */,
-				E0308547265B85BC00172809 /* VisitedHotelViewController.swift */,
-				E030854C265B85D600172809 /* FavouritesHotelViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -359,18 +347,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E070DB13265D1EC300E0DBBC /* DataManagerViewModel.swift in Sources */,
-				E03084EC265B83BC00172809 /* ViewController.swift in Sources */,
 				E0308543265B85A100172809 /* AddHotelViewController.swift in Sources */,
 				E03084E8265B83BC00172809 /* AppDelegate.swift in Sources */,
-				E030853E265B858800172809 /* EditUpdateHotelViewController.swift in Sources */,
 				E0308528265B851500172809 /* SwiftCoreDataHelper.swift in Sources */,
 				E0308530265B854700172809 /* HotelsListViewController.swift in Sources */,
 				E070DB0E265BC2CD00E0DBBC /* HotelModel.swift in Sources */,
 				E03084F2265B83BC00172809 /* MyHotels.xcdatamodeld in Sources */,
 				E03084EA265B83BC00172809 /* SceneDelegate.swift in Sources */,
 				E0308558265BAC0700172809 /* Extensions.swift in Sources */,
-				E030854D265B85D600172809 /* FavouritesHotelViewController.swift in Sources */,
-				E0308548265B85BC00172809 /* VisitedHotelViewController.swift in Sources */,
 				E0308536265B856C00172809 /* HotelDetailTableViewCell.swift in Sources */,
 				E0308552265BAB9D00172809 /* ImagePickerManager.swift in Sources */,
 			);
