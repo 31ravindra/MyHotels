@@ -25,6 +25,8 @@
 		E030854D265B85D600172809 /* FavouritesHotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030854C265B85D600172809 /* FavouritesHotelViewController.swift */; };
 		E0308552265BAB9D00172809 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0308551265BAB9D00172809 /* ImagePickerManager.swift */; };
 		E0308558265BAC0700172809 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0308557265BAC0700172809 /* Extensions.swift */; };
+		E070DB0E265BC2CD00E0DBBC /* HotelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070DB0D265BC2CD00E0DBBC /* HotelModel.swift */; };
+		E070DB13265D1EC300E0DBBC /* DataManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E070DB12265D1EC300E0DBBC /* DataManagerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		E030854C265B85D600172809 /* FavouritesHotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesHotelViewController.swift; sourceTree = "<group>"; };
 		E0308551265BAB9D00172809 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		E0308557265BAC0700172809 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E070DB0D265BC2CD00E0DBBC /* HotelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelModel.swift; sourceTree = "<group>"; };
+		E070DB12265D1EC300E0DBBC /* DataManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,7 @@
 		E0308525265B84DE00172809 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E070DB0D265BC2CD00E0DBBC /* HotelModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 		E0308526265B84E500172809 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E070DB12265D1EC300E0DBBC /* DataManagerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -352,12 +358,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E070DB13265D1EC300E0DBBC /* DataManagerViewModel.swift in Sources */,
 				E03084EC265B83BC00172809 /* ViewController.swift in Sources */,
 				E0308543265B85A100172809 /* AddHotelViewController.swift in Sources */,
 				E03084E8265B83BC00172809 /* AppDelegate.swift in Sources */,
 				E030853E265B858800172809 /* EditUpdateHotelViewController.swift in Sources */,
 				E0308528265B851500172809 /* SwiftCoreDataHelper.swift in Sources */,
 				E0308530265B854700172809 /* HotelsListViewController.swift in Sources */,
+				E070DB0E265BC2CD00E0DBBC /* HotelModel.swift in Sources */,
 				E03084F2265B83BC00172809 /* MyHotels.xcdatamodeld in Sources */,
 				E03084EA265B83BC00172809 /* SceneDelegate.swift in Sources */,
 				E0308558265BAC0700172809 /* Extensions.swift in Sources */,
