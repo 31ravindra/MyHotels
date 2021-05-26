@@ -18,6 +18,13 @@ struct Constants {
     struct entityConstant {
         static let entityName = "Hotel"
         static let nameAttribute = "name"
+        static let ratingAttribute = "rating"
+        static let imgDataAttribute = "img"
+        static let addressAttibute = "address"
+        static let roomrateAttribute = "roomrate"
+        static let staydateAttribute = "staydate"
+        static let isfavouriteAttribute = "isfavourite"
+        static let isVisitedAttribute = "isVisited"
     }
     
     

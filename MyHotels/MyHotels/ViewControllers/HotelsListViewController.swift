@@ -12,7 +12,7 @@ class HotelsListViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var lblNoHotels: UILabel!
     @IBOutlet weak var addButton: UIBarButtonItem!
-    let coreDataHelper = SwiftCoreDataHelper()
+    let dataManagerVM = DataManagerViewModel()
     var hotels: [NSManagedObject] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class HotelsListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        coreDataHelper.getData(forEntity: Constants.entityConstant.entityName, andSaveToArray: &hotels, completion: { [weak self](isComplete) in
+        dataManagerVM.getData(forEntity: Constants.entityConstant.entityName, andSaveToArray: &hotels, completion: { [weak self](isComplete) in
             DispatchQueue.main.async {
                 if isComplete {
                     self?.tblView.reloadData()
@@ -77,7 +77,7 @@ extension HotelsListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         let imgData = hotel.value(forKey: "img") as! Data
         let imge = imgData.uiImage
-        cell.imageView?.image = imge
+        cell.imgHotel.image = imge
         cell.cellDelegate = self
         cell.btnFavorite.tag = indexPath.row
         let isFav = hotel.value(forKey: "isfavourite") as! Bool
@@ -103,7 +103,7 @@ extension HotelsListViewController: UITableViewDataSource, UITableViewDelegate {
             // remove the item from the data model
             let deleteHotel = hotels[indexPath.row]
             // delete the table view row
-            coreDataHelper.deleteData(deleteHotel: deleteHotel, forEntity: Constants.entityConstant.entityName, completion: {[weak self](isDeleted) in
+            dataManagerVM.deleteData(deleteHotel: deleteHotel, forEntity: Constants.entityConstant.entityName, completion: {[weak self](isDeleted) in
                 DispatchQueue.main.async {
                     self?.hotels.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: .fade)
@@ -146,14 +146,14 @@ extension HotelsListViewController: HotelDetailTableViewCellDelegate {
         if !ishotelFav {
             cell.btnFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
             hotelModel.isFav = true
-            coreDataHelper.updateData(forEntity: Constants.entityConstant.entityName, objectId: hotel.objectID, updateValueTo: hotelModel, andSaveToArray: &hotels, completion: {(isUpdated) in
+            dataManagerVM.updateData(forEntity: Constants.entityConstant.entityName, objectId: hotel.objectID, updateValueTo: hotelModel, andSaveToArray: &hotels, completion: {(isUpdated) in
                 
             })
             
         } else {
             cell.btnFavorite.setImage(UIImage(systemName: "star"), for: .normal)
             hotelModel.isFav = false
-            coreDataHelper.updateData(forEntity: Constants.entityConstant.entityName, objectId: hotel.objectID, updateValueTo: hotelModel, andSaveToArray: &hotels, completion: {(isUpdated) in
+            dataManagerVM.updateData(forEntity: Constants.entityConstant.entityName, objectId: hotel.objectID, updateValueTo: hotelModel, andSaveToArray: &hotels, completion: {(isUpdated) in
                 
             })
         }
