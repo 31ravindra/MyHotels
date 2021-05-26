@@ -36,6 +36,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
         alert.addAction(cameraAction)
         alert.addAction(galleryAction)
         alert.addAction(cancelAction)
+        
     }
 
     func pickImage(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> ())) {
@@ -44,7 +45,18 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
 
         alert.popoverPresentationController?.sourceView = self.viewController!.view
 
-        viewController.present(alert, animated: true, completion: nil)
+        if ( UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad ){
+
+                if let currentPopoverpresentioncontroller = alert.popoverPresentationController{
+                    currentPopoverpresentioncontroller.permittedArrowDirections = []
+                    currentPopoverpresentioncontroller.sourceView = viewController.view
+                    viewController.present(alert, animated: true, completion: nil)
+                }
+            }else{
+                viewController.present(alert, animated: true, completion: nil)
+            }
+       
+        
     }
     func openCamera(){
         alert.dismiss(animated: true, completion: nil)

@@ -27,5 +27,16 @@ struct Constants {
         static let isVisitedAttribute = "isVisited"
     }
     
+    struct UIMessageConstant {
+        static let dataSavedMsg = "Data Saved"
+        static let dataUpdateMsg = "Data Updated"
+        static let emptyFieldMsg = "Please add atleast Name"
+    }
+    
+    struct NavigatioTitle {
+        static let addHotelTitle = "Add Hotel"
+        static let editHotelTitle = "Edit Hotel"
+    }
+    
     
 }
