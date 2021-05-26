@@ -6,8 +6,8 @@
 - user can add favourites hotel by using Star icon in table view cell.
 
 
-Requirement - 
-Xcode 12+ 
-Swift 5
-iOS 13+ 
-iPhone and iPad
+Support and Requirements - 
+- Xcode 12+ 
+- Swift 5
+- iOS 13+ 
+- iPhone and iPad
